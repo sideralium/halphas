@@ -1,0 +1,31 @@
+name: run
+on:
+  workflow_dispatch: ~
+jobs:
+  gather:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install deps
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          sudo apt update
+          sudo apt install wget unzip libgtk2.0-0 libgconf-2-4
+      - name: download chromium
+        env:
+          chromium-path: $PWD/chrome-linux
+        run: |
+          wget -O chromium.zip https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F415000%2Fchrome-linux.zip?generation=1472477559994000&alt=media
+          unzip chromium.zip
+      - name: download flash
+        env:
+          flash-path: $PWD/libpepflashplayer.so
+        run: |
+          wget -O flash.tar.gz https://github.com/darktohka/clean-flash-builds/releases/download/v1.7/flash_player_patched_ppapi_linux.x86_64.tar.gz
+          tar xzf flash.tar.gz
+      - name: activate fake display
+        run: export DISPLAY=:1
+      - name: launch chromium
+        run: |
+          cd ${{ env.chromium-path }}
+          ./chrome --no-sandbox --ppapi-flash-path=${{ env.flash-path }} --user-agent=BigpointClient/1.6.3 ultrasounds.com

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {},
+        "rootDirs": [
+            "src/server"
+        ],
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "../../lib",
+        "removeComments": true
+    }
+}

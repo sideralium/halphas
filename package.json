@@ -1,0 +1,21 @@
+{
+  "name": "halphas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:server && npm run build:website",
+    "build:server": "tsc --build src/server/tsconfig.json",
+    "watch:server": "tsc --build src/server/tsconfig.json -w",
+    "build:website": "tsc --build src/website/tsconfig.json",
+    "watch:website": "tsc --build src/website/tsconfig.json -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^15.12.4",
+    "typescript": "^4.3.4"
+  }
+}

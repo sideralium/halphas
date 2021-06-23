@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "System",
+        "strict": true,
+        "baseUrl": "./",
+        "paths": {},
+        "rootDirs": [
+            "src/website"
+        ],
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outFile": "../../lib/web.js",
+        "removeComments": true
+    }
+}
